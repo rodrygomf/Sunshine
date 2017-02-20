@@ -152,7 +152,6 @@ public class ForecastFragment extends Fragment {
 
                 // Lê o input stream para uma String
                 InputStream inputStream = urlConnection.getInputStream();
-
                 StringBuffer buffer = new StringBuffer();
                 if(inputStream == null) return null;
 
@@ -169,7 +168,7 @@ public class ForecastFragment extends Fragment {
                 if(buffer.length() == 0) return null;
                 forecastJsonStr = buffer.toString();
             }catch(IOException e) {
-                Log.e(LOG_TAG, "Error ", e);
+                Log.e(LOG_TAG, "Erro ", e);
                 // Se o código não obtiver sucesso ao obter os dados, não é necessário fazer o parse.
                 return null;
             }finally {
@@ -181,7 +180,7 @@ public class ForecastFragment extends Fragment {
                     try {
                         reader.close();
                     }catch(final IOException e) {
-                        Log.e(LOG_TAG, "Error closing stream", e);
+                        Log.e(LOG_TAG, "Erro fechando stream", e);
                     }
                 }
             }
